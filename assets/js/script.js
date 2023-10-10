@@ -22,6 +22,7 @@ window.addEventListener('load', () => {
     const brickOffsetTop = 30;
     const brickOffsetLeft = 30;
     
+    let score = 0;
 
     const bricks = [];
     for (let c = 0; c < brickColumnCount; c++) {
@@ -98,10 +99,22 @@ window.addEventListener('load', () => {
               ) {
                 dy = -dy;
                 b.status = 0;
+                score += 10;
+                if (score === brickRowCount * brickColumnCount * 10) {
+                  alert("YOU WIN, CONGRATULATIONS!");
+                  document.location.reload();
+                  clearInterval(interval); // Needed for Chrome to end game
+                }
               }
             }
           }
         }
+      }
+
+      function drawScore() {
+        ctx.font = "16px Arial";
+        ctx.fillStyle = "#0095DD";
+        ctx.fillText(`Score: ${score}`, 8, 20);
       }
       
       function draw() {
@@ -110,6 +123,7 @@ window.addEventListener('load', () => {
         drawPaddle();
         drawBricks();
         collisionDetection();
+        drawScore();
         x += dx;
         y += dy;
         if (rightPressed) {
