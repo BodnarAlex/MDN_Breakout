@@ -6,7 +6,7 @@ This is my first game using canvas. I made it according to the instructions from
 
 You can try playing the game using the link below.
 
-**DEMO**: [GitHub Demo](https://bodnaralex.github.io/MND_Breakout/).
+**DEMO**: [GitHub Demo](https://bodnaralex.github.io/MDN_Breakout/).
 
 **SCREENSHOT**
 
