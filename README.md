@@ -1,8 +1,6 @@
 # MND Breakout
 
-The game is written according to the MND guide for learning canvas.
-
-HTML, CSS and JS were used.
+This is my first game using canvas. I made it according to the instructions from MND and used HTML, CSS and JS.
 
 ## Web page to view
 
@@ -12,7 +10,7 @@ You can try playing the game using the link below.
 
 **SCREENSHOT**
 
-![Screenshot graph](https://github.com/BodnarAlex/MND_Breakout/assets/img/screen.png)
+![Screenshot graph](https://github.com/BodnarAlex/MDN_Breakout/blob/gh-pages/assets/img/screen.png)
 
 ## Gratitude
 
