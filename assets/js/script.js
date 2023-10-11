@@ -23,6 +23,7 @@ window.addEventListener('load', () => {
     const brickOffsetLeft = 30;
     
     let score = 0;
+    let lives = 3;
 
     const bricks = [];
     for (let c = 0; c < brickColumnCount; c++) {
@@ -53,9 +54,18 @@ window.addEventListener('load', () => {
         if (x > paddleX - 3 && x < paddleX + paddleWidth + 3) {
           dy = -dy;
         } else {
-          alert("GAME OVER");
-          document.location.reload();
-          clearInterval(interval);
+          lives--;
+          if (!lives) {
+            alert("GAME OVER");
+            document.location.reload();
+            clearInterval(interval); // Needed for Chrome to end game
+          } else {
+            x = canvas.width / 2;
+            y = canvas.height - 30;
+            dx = 2;
+            dy = -2;
+            paddleX = (canvas.width - paddleWidth) / 2;
+          }        
         }
       }
       }
@@ -116,6 +126,12 @@ window.addEventListener('load', () => {
         ctx.fillStyle = "#0095DD";
         ctx.fillText(`Score: ${score}`, 8, 20);
       }
+
+      function drawLives() {
+        ctx.font = "16px Arial";
+        ctx.fillStyle = "#0095DD";
+        ctx.fillText(`Lives: ${lives}`, canvas.width - 65, 20);
+      }
       
       function draw() {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -124,6 +140,7 @@ window.addEventListener('load', () => {
         drawBricks();
         collisionDetection();
         drawScore();
+        drawLives();
         x += dx;
         y += dy;
         if (rightPressed) {
